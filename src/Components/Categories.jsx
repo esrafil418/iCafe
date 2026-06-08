@@ -12,7 +12,7 @@ const Categories = ({ categories }) => {
             category === mainCategory ? "filter-btn highlight" : "filter-btn"
           }
           onClick={() => {
-            setMainCategory(category)
+            setMainCategory(category);
           }}
         >
           {category}
