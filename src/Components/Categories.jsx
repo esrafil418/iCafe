@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories, filterMenus }) => {
   const [mainCategory, setMainCategory] = useState("all");
   return (
     <div className="btn-container">
@@ -13,6 +13,7 @@ const Categories = ({ categories }) => {
           }
           onClick={() => {
             setMainCategory(category);
+            filterMenus(category);
           }}
         >
           {category}

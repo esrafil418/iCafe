@@ -8,6 +8,15 @@ const allCategories = ["all", ...new Set(menus.map((menu) => menu.category))];
 function App() {
   const [allMenus, setAllMenus] = useState(menus);
   const [categories, setCategories] = useState(allCategories);
+
+  const filterMenus = (category) => {
+    if (category === "all") {
+      setAllMenus(menus);
+      return;
+    }
+    let filteredMenus = menus.filter((menu) => menu.category === category);
+    setAllMenus(filteredMenus);
+  };
   return (
     <main>
       <section className="menu section">
@@ -15,7 +24,7 @@ function App() {
           <h2>Cafe menu</h2>
           <div className="underline"></div>
         </div>
-        <Categories categories={categories} />
+        <Categories categories={categories} filterMenus={filterMenus} />
         <Menu allMenus={allMenus} />
       </section>
     </main>
